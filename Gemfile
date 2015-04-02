@@ -13,6 +13,9 @@ gem "jbuilder", "~> 2.0"
 gem "awesome_print"
 gem "figaro"
 gem "tweetstream"
+gem "faraday"
+gem "responders"
+gem "hashie"
 
 group :development, :test do
   gem "pry"
@@ -24,4 +27,9 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
+end
+
+group :test do
+  gem "vcr"
+  gem "webmock"
 end
