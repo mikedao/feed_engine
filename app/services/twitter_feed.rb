@@ -1,6 +1,6 @@
 require "tweetstream"
 
-class Feed
+class TwitterFeed
   attr_reader :stream
 
   def initialize
