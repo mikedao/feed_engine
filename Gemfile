@@ -16,6 +16,7 @@ gem "tweetstream"
 gem "faraday"
 gem "responders"
 gem "hashie"
+gem "whenever", require: false
 
 group :development, :test do
   gem "pry"
