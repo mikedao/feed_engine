@@ -13,7 +13,6 @@ gem "jbuilder", "~> 2.0"
 gem "awesome_print"
 gem "figaro"
 gem "tweetstream"
-gem "thin"
 
 group :development, :test do
   gem "pry"
