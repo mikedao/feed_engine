@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401224021) do
+ActiveRecord::Schema.define(version: 20150402195641) do
 
- # These are extensions that must be enabled in order to support this database
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
@@ -25,4 +25,12 @@ ActiveRecord::Schema.define(version: 20150401224021) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "tweets", force: :cascade do |t|
+    t.string   "body"
+    t.string   "username"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
