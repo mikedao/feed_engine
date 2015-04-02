@@ -16,6 +16,7 @@ gem "tweetstream"
 gem "faraday"
 gem "responders"
 gem "hashie"
+gem "sucker_punch", "~> 1.0"
 
 group :development, :test do
   gem "pry"
