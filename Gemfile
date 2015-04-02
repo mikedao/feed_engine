@@ -15,6 +15,7 @@ gem "figaro"
 gem "tweetstream"
 gem "faraday"
 gem "responders"
+gem "hashie"
 
 group :development, :test do
   gem "pry"

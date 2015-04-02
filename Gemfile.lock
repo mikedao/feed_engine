@@ -76,6 +76,7 @@ GEM
       thor (~> 0.14)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    hashie (3.4.0)
     hike (1.2.3)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
@@ -209,6 +210,7 @@ DEPENDENCIES
   binding_of_caller
   faraday
   figaro
+  hashie
   jbuilder (~> 2.0)
   pg
   pry
