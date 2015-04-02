@@ -228,6 +228,7 @@ DEPENDENCIES
   spring
   sucker_punch (~> 1.0)
   tweetstream
+  twitter
   vcr
   web-console (~> 2.0)
   webmock
