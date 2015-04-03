@@ -16,9 +16,7 @@ class TwitterFeed
   end
 
   def sample
-    stream.sample do |tweet|
-      Tweet.create(body: tweet.text)
-    end
+    stream.sample
   end
 
   def track(term)
