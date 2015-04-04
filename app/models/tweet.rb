@@ -15,7 +15,7 @@ class Tweet < ActiveRecord::Base
     tweet.geo? ? set_coordinate(dir, tweet) : nil
   end
 
-  def set_coordinate(dir, tweet)
+  def self.set_coordinate(dir, tweet)
     if dir == "lat"
       tweet.geo.coordinates.first.to_f
     elsif dir == "long"
