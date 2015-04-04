@@ -17,6 +17,7 @@ gem "faraday"
 gem "responders"
 gem "hashie"
 gem "whenever", require: false
+gem "geocoder"
 
 group :development, :test do
   gem "pry"

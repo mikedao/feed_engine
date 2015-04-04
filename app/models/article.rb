@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
         title: article.title,
         url: article.url,
         abstract: article.abstract,
-        desc_facet: _clean_attribute(article.desc_facet),
+        desc_facet: _clean_location(article.desc_facet),
         geo_facet: _clean_attribute(article.geo_facet)
       )
     end
@@ -22,6 +22,10 @@ class Article < ActiveRecord::Base
     else
       attribute ? attribute.join(",") : ""
     end
+  end
+
+  def self._clean_location(attribute)
+    attribute ? attribute[0] : ""
   end
 
   def self._build_object(article)
