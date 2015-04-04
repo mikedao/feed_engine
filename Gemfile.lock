@@ -47,6 +47,7 @@ GEM
       debug_inspector (>= 0.0.1)
     buftok (0.2.0)
     builder (3.2.2)
+    chronic (0.10.2)
     coderay (1.1.0)
     cookiejar (0.3.2)
     crack (0.4.2)
@@ -200,6 +201,8 @@ GEM
     webmock (1.20.4)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
+    whenever (0.9.4)
+      chronic (>= 0.6.3)
 
 PLATFORMS
   ruby
@@ -223,3 +226,4 @@ DEPENDENCIES
   vcr
   web-console (~> 2.0)
   webmock
+  whenever
