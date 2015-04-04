@@ -12,7 +12,9 @@ class Article < ActiveRecord::Base
         url: article.url,
         abstract: article.abstract,
         desc_facet: _clean_attribute(article.des_facet),
-        geo_facet: _clean_attribute(article.geo_facet)
+        geo_facet: _clean_attribute(article.geo_facet),
+        latitude: _get_latlon["lat"],
+        longitude: _get_latlon["lng"]
       )
     end
   end
@@ -33,5 +35,12 @@ class Article < ActiveRecord::Base
 
   def self._build_object(article)
     Hashie::Mash.new(article)
+  end
+
+  def self._get_latlon
+    if geo_facet.present?
+      locdata ||= Hashie::Mash.new(GeocodeService.new.geocode_info(geo_facet))
+      locdata.results.first.geometry.location
+    end
   end
 end

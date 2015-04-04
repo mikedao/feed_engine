@@ -1,13 +1,12 @@
 class GeocodeService
   attr_reader :connection
 
-  def initialize(geo_facet)
-    @connection ||= Faraday.new(url: "https://maps.googleapis.com/maps/api/geocode/json?address=#{geo_facet}&key=#{ENV['GOOGLE_GEOCODE_API_KEY']}")
+  def initialize
+    @connection ||= Faraday.new(url: "https://maps.googleapis.com/maps/api/geocode")
   end
 
-  def latlon
-    response_body = parse(connection.get)
-    binding.pry
+  def geocode_info(geo_facet)
+    response = parse(connection.get("json?key=#{ENV['google_geocode_api_key']}&address=#{geo_facet}"))
   end
 
   private
