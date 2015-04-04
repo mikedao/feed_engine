@@ -34,7 +34,11 @@ class Article < ActiveRecord::Base
   end
 
   def self._clean_location(attribute)
-    attribute ? attribute[0] : ""
+    if attribute.class == String
+      attribute
+    else
+      attribute ? attribute[0] : ""
+    end
   end
 
   def self._build_object(article)
