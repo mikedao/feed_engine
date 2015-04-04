@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  validates :title, uniqueness: true
+
   def self.create_articles(articles_data)
     articles_data.each do |article|
       article = _build_object(article)
