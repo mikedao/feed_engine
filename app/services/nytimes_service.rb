@@ -3,8 +3,8 @@ class NytimesService
 
   def initialize
     @connection ||= Faraday.new(url: "http://api.nytimes.com/svc/topstories/" +
-                                "v1/home.json?" + 
-                                "api-key=b153eb5a98da885cf337dba80557" + 
+                                "v1/home.json?" +
+                                "api-key=b153eb5a98da885cf337dba80557" +
                                 "ac1b:14:71760602")
   end
 
