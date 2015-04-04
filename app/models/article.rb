@@ -8,7 +8,7 @@ class Article < ActiveRecord::Base
         title: article.title,
         url: article.url,
         abstract: article.abstract,
-        desc_facet: _clean_attribute(article.desc_facet),
+        desc_facet: _clean_attribute(article.des_facet),
         geo_facet: _clean_attribute(article.geo_facet)
       )
     end

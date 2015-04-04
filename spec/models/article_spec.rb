@@ -6,7 +6,7 @@ RSpec.describe Article, type: :model do
       title: "title",
       url: "url",
       abstract: "abstract",
-      desc_facet: "desc_facet",
+      des_facet: "desc_facet",
       geo_facet: "geo_facet"
     }]
 
