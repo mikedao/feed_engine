@@ -13,9 +13,11 @@ gem "jbuilder", "~> 2.0"
 gem "awesome_print"
 gem "figaro"
 gem "tweetstream"
+gem "twitter"
 gem "faraday"
 gem "responders"
 gem "hashie"
+gem "sucker_punch", "~> 1.0"
 gem "whenever", require: false
 
 group :development, :test do
