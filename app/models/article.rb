@@ -1,8 +1,8 @@
 class Article < ActiveRecord::Base
   validates :title, uniqueness: true
 
-  geocoded_by :geo_facet
-  after_create :geocode #, if: ->(obj){ obj.geo_facet.present? }
+  #geocoded_by :geo_facet
+  #after_create :geocode #, if: ->(obj){ obj.geo_facet.present? }
 
   def self.create_articles(articles_data)
     articles_data.each do |article|
