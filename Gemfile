@@ -19,7 +19,6 @@ gem "responders"
 gem "hashie"
 gem "sucker_punch", "~> 1.0"
 gem "whenever", require: false
-gem "geocoder"
 
 group :development, :test do
   gem "pry"
