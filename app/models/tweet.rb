@@ -9,8 +9,6 @@ class Tweet < ActiveRecord::Base
     end
   end
 
-  private
-
   def self.add_coordinates(dir, tweet)
     tweet.geo? ? set_coordinate(dir, tweet) : nil
   end
