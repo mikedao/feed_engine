@@ -6,7 +6,7 @@ RSpec.describe Article, type: :model do
       title: "title",
       url: "url",
       abstract: "abstract",
-      desc_facet: "desc_facet",
+      des_facet: "desc_facet",
       geo_facet: "geo_facet"
     }]
 
@@ -17,8 +17,5 @@ RSpec.describe Article, type: :model do
     expect(Article.first.abstract).to eq("abstract")
     expect(Article.first.desc_facet).to eq("desc_facet")
     expect(Article.first.geo_facet).to eq("geo_facet")
-  end
-
-  it "can identify the keywords of an article" do
   end
 end
