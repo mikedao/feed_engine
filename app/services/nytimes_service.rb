@@ -10,6 +10,7 @@ class NytimesService
     response_body = parse(connection.get)
     articles_data = response_body["results"]
     Article.create_articles(articles_data)
+    Article.build_associated_tweets
   end
 
   private

@@ -18,4 +18,6 @@ RSpec.describe Article, type: :model do
     expect(Article.first.desc_facet).to eq("desc_facet")
     expect(Article.first.geo_facet).to eq("geo_facet")
   end
+
+  it {should have_many(:tweets)}
 end

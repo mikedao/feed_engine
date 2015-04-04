@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   validates :title, uniqueness: true
+  has_many :tweets
 
   def self.create_articles(articles_data)
     articles_data.each do |article|
@@ -14,8 +15,6 @@ class Article < ActiveRecord::Base
     end
   end
 
-  private
-
   def self._clean_attribute(attribute)
     if attribute.class == String
       attribute
@@ -26,5 +25,11 @@ class Article < ActiveRecord::Base
 
   def self._build_object(article)
     Hashie::Mash.new(article)
+  end
+
+  def self.build_associated_tweets
+    self.all.each do |article|
+      TwitterRestApi.new.search_by(article.url)
+    end
   end
 end

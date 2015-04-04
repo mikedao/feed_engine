@@ -1,4 +1,7 @@
 class Tweet < ActiveRecord::Base
+  validates :tweet_id, uniqueness: true
+  belongs_to :article
+
   def self.build_tweets(data)
     data.each do |tweet|
       Tweet.create(body: tweet.text,
