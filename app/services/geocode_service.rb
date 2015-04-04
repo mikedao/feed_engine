@@ -6,7 +6,7 @@ class GeocodeService
   end
 
   def geocode_info(geo_facet)
-    response = parse(connection.get("json?key=#{ENV['google_geocode_api_key']}&address=#{geo_facet}"))
+    parse(connection.get("json?key=#{ENV['google_geocode_api_key']}&address=#{geo_facet}"))
   end
 
   private
