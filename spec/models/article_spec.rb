@@ -29,8 +29,7 @@ RSpec.describe Article, type: :model do
       desc_facet: "desc_facet",
       geo_facet: "geo_facet"
     }]
-
-    article = Article.create_articles(article_data)
-    #TODO stub and mock out this method -> Article.build_associated_tweets
+    Article.create_articles(article_data)
+    Article.build_associated_tweets
   end
 end

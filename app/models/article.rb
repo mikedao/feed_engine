@@ -29,7 +29,10 @@ class Article < ActiveRecord::Base
 
   def self.build_associated_tweets
     all.each do |article|
-      TwitterRestApi.new.search_by(article.url)
+      tweets = TwitterRestApi.new.search_by(article.url)
+      data = tweets.attrs[:statuses]
+      article_id = article.id
+      Tweet.build_tweets(data, article_id)
     end
   end
 end
