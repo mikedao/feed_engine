@@ -1,5 +1,5 @@
-require 'matrix'
-require 'tf-idf-similarity'
+require "matrix"
+require "tf-idf-similarity"
 
 class KeywordEngine
   KEYWORDS_PER_ARTICLE = 4
@@ -30,17 +30,31 @@ class KeywordEngine
     document.terms.each do |term|
       tfidf_by_term[term] = model.tfidf(document, term)
     end
-    sorted_keywords = tfidf_by_term.sort_by{|_,tfidf| -tfidf}
-    sorted_keywords.map do |element|
-      element[0]
-    end.reject do |word|
-      word.length < MINIMUM_KEYWORD_LENGTH
-    end[0..KEYWORDS_PER_ARTICLE].join(",")
+    sort_and_filter_terms(tfidf_by_term)
   end
 
   private
 
   def find_document(article)
-    corpus.find { |document| document.text == article.keyword_base_text}
+    corpus.find { |document| document.text == article.keyword_base_text }
+  end
+
+  def sort_and_filter_terms(tfidf_by_term)
+    sorted_keywords = sort_terms(tfidf_by_term)
+    filter_terms(sorted_keywords)
+  end
+
+  def sort_terms(tfidf_by_term)
+    tfidf_by_term.sort_by{ |_, tfidf| -tfidf }
+  end
+
+  def filter_terms(sorted_keywords)
+    terms = sorted_keywords.map do |element|
+      element[0]
+    end
+    filtered_terms = terms.reject do |term|
+      term.length < MINIMUM_KEYWORD_LENGTH
+    end
+    filtered_terms[0..KEYWORDS_PER_ARTICLE].join(",")
   end
 end

@@ -16,10 +16,10 @@ class Article < ActiveRecord::Base
 
   def keyword_base_text
     base_text_data = [title,
-                      desc_facet.gsub(/,/," "),
+                      desc_facet.gsub(/,/, " "),
                       abstract]
     base_text_data.map do |attribute|
-      attribute.gsub(/[^\w]+/," ").split(" ")
+      attribute.gsub(/[^\w]+/, " ").split(" ")
     end.flatten.join(" ")
   end
 
