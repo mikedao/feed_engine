@@ -34,7 +34,10 @@ RSpec.describe Article, type: :model do
                                    " when cultivating innovation, it's all" +
                                    " about the people #…")
     expect(Tweet.first.username).to eq("j3")
-    expect(Tweet.first.user_profile_image).to eq("http://pbs.twimg.com/profile_images/378800000543599975/c63a58ff323b22a9e9ad52ffbbfb7f0a_normal.jpeg")
+    expect(Tweet.first.user_profile_image).to eq("http://pbs.twimg.com/" +
+                                                 "profile_images/37880000054359" +
+                                                 "9975/c63a58ff323b22a9e9ad52f"+
+                                                 "fbbfb7f0a_normal.jpeg")
     expect(Tweet.first.tweet_id).to eq(584427863450914816)
     expect(Tweet.first.longitude).to eq(nil)
     expect(Tweet.first.latitude).to eq(nil)
