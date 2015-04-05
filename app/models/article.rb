@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   validates :title, uniqueness: true
 
   def self.create_articles(articles_data)
-    articles_data.each do |article|
+    articles_data.map do |article|
       article = _build_object(article)
       Article.create(
         title: article.title,
@@ -12,6 +12,15 @@ class Article < ActiveRecord::Base
         geo_facet: _clean_attribute(article.geo_facet)
       )
     end
+  end
+
+  def keyword_base_text
+    base_text_data = [title,
+                      desc_facet.gsub(/,/," "),
+                      abstract]
+    base_text_data.map do |attribute|
+      attribute.gsub(/[^\w]+/," ").split(" ")
+    end.flatten.join(" ")
   end
 
   private
