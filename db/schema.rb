@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20150405004706) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "keywords"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "tweets", force: :cascade do |t|
