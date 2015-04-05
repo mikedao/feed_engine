@@ -10,11 +10,7 @@ class NytimesService
     response_body = parse(connection.get)
     articles_data = response_body["results"]
     Article.create_articles(articles_data)
-    keyword_engine = KeywordEngine.new
-    Article.all.each do |article|
-      keywords = keyword_engine.generate_keywords(article)
-      article.update(keywords: keywords)
-    end
+    Article.add_keywords_to_articles
   end
 
   private

@@ -21,12 +21,18 @@ class Article < ActiveRecord::Base
   end
 
   def keyword_base_text
-    base_text_data = [title,
-                      desc_facet.gsub(/,/, " "),
-                      abstract]
+    base_text_data = [title, desc_facet, abstract]
     base_text_data.map do |attribute|
       attribute.gsub(/[^\w]+/, " ").split(" ")
     end.flatten.join(" ")
+  end
+
+  def self.add_keywords_to_articles
+    keyword_engine = KeywordEngine.new
+    all.each do |article|
+      keywords = keyword_engine.generate_keywords(article)
+      article.update(keywords: keywords)
+    end
   end
 
   private
