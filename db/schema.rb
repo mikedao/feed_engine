@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20150404223032) do
     t.string   "geo_facet"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "tweets", force: :cascade do |t|
