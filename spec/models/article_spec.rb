@@ -23,15 +23,21 @@ RSpec.describe Article, type: :model do
 
   it { should have_many(:tweets) }
 
-  xit "should build associated tweets from article url" do
-    article_data = [{
-      title: "title",
-      url: "http://example.com",
-      abstract: "abstract",
-      desc_facet: "desc_facet",
-      geo_facet: "geo_facet"
-    }]
-    Article.create_articles(article_data)
-    Article.build_associated_tweets
+  it "should build associated tweets from article url" do
+    Article.create(url: "http://turing.io")
+    VCR.use_cassette("article#build_associated_tweets") do
+      Article.build_associated_tweets
+    end
+
+    expect(Tweet.first.body).to eq("RT @StevePolyak: Jeff Casimir @j3 director" +
+                                   " at @TuringSchool http://t.co/O0QxUqjmKv" +
+                                   " when cultivating innovation, it's all" +
+                                   " about the people #…")
+    expect(Tweet.first.username).to eq("j3")
+    expect(Tweet.first.user_profile_image).to eq("http://pbs.twimg.com/profile_images/378800000543599975/c63a58ff323b22a9e9ad52ffbbfb7f0a_normal.jpeg")
+    expect(Tweet.first.tweet_id).to eq(584427863450914816)
+    expect(Tweet.first.longitude).to eq(nil)
+    expect(Tweet.first.latitude).to eq(nil)
+    expect(Tweet.first.article_id).to eq(Article.first.id)
   end
 end

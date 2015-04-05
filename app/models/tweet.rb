@@ -10,6 +10,7 @@ class Tweet < ActiveRecord::Base
                    user_profile_image: tweet_data.user.profile_image_url,
                    latitude: add_coordinates("lat", tweet_data),
                    longitude: add_coordinates("long", tweet_data),
+                   tweet_id: tweet_data.id,
                    article_id: article_id)
     end
   end
