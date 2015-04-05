@@ -27,5 +27,5 @@ RSpec.describe Tweet, type: :model do
       expect(tweet.longitude).to eq(-101.2342)
     end
   end
-  it {should belong_to(:article)}
+  it { should belong_to(:article) }
 end

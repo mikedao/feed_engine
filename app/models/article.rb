@@ -28,7 +28,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.build_associated_tweets
-    self.all.each do |article|
+    all.each do |article|
       TwitterRestApi.new.search_by(article.url)
     end
   end
