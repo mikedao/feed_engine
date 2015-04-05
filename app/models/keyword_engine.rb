@@ -45,7 +45,7 @@ class KeywordEngine
   end
 
   def sort_terms(tfidf_by_term)
-    tfidf_by_term.sort_by{ |_, tfidf| -tfidf }
+    tfidf_by_term.sort_by { |_, tfidf| -tfidf }
   end
 
   def filter_terms(sorted_keywords)
