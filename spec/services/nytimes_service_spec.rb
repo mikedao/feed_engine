@@ -16,7 +16,9 @@ RSpec.describe NytimesService do
            "-of-endless-growth.html")
 			)
 			expect(Article.first.abstract).to(
-				eq("The state&#8217;s history as a frontier of prosperity and glamour faces an uncertain future as the fourth year of severe shortages prompts Gov. Jerry Brown to mandate a 25 percent reduction in non-agricultural water use.")
+				eq("The state&#8217;s history as a frontier of prosperity and glamour faces " + 
+            "an uncertain future as the fourth year of severe shortages prompts Gov. Jerry Brown to mandate a 25" + 
+              " percent reduction in non-agricultural water use.")
 			)
 			expect(Article.first.desc_facet).to(
 				eq("")
