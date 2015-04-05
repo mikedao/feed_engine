@@ -176,6 +176,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
     sucker_punch (1.4.0)
       celluloid (~> 0.16.0)
+    tf-idf-similarity (0.1.4)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -232,6 +233,7 @@ DEPENDENCIES
   rspec-rails
   spring
   sucker_punch (~> 1.0)
+  tf-idf-similarity
   tweetstream
   twitter
   vcr

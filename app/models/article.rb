@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   validates :title, uniqueness: true
 
   def self.create_articles(articles_data)
-    articles_data.each do |article|
+    articles_data.map do |article|
       article = _build_object(article)
       current_article = Article.new(
         title: article.title,
@@ -17,6 +17,21 @@ class Article < ActiveRecord::Base
           longitude: _get_latlon(current_article.id)["lng"]
         )
       end
+    end
+  end
+
+  def keyword_base_text
+    base_text_data = [title, desc_facet, abstract]
+    base_text_data.map do |attribute|
+      attribute.gsub(/[^\w]+/, " ").split(" ")
+    end.flatten.join(" ")
+  end
+
+  def self.add_keywords_to_articles
+    keyword_engine = KeywordEngine.new
+    all.each do |article|
+      keywords = keyword_engine.generate_keywords(article)
+      article.update(keywords: keywords)
     end
   end
 
