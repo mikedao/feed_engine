@@ -11,6 +11,6 @@ class TwitterRestApi
   end
 
   def search_by(terms)
-    Tweet.build_tweets(client.search(terms, lang: "en"))
+    client.search(terms, lang: "en")
   end
 end
