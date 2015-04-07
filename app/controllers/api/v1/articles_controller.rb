@@ -5,6 +5,6 @@ class Api::V1::ArticlesController < ApplicationController
   end
 
   def show
-    render json: Article.find(params[:id]), serializer: ArticleSerializer
+    render json: Article.find(params[:id])
   end
 end
