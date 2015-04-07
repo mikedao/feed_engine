@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150405220910) do
     t.string   "geo_facet"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "keywords"
     t.float    "latitude"
     t.float    "longitude"
   end

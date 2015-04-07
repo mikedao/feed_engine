@@ -3,7 +3,7 @@ class Article < ActiveRecord::Base
   has_many :tweets
 
   def self.create_articles(articles_data)
-    articles_data.each do |article|
+    articles_data.map do |article|
       article = _build_object(article)
       current_article = Article.new(
         title: article.title,
@@ -20,6 +20,17 @@ class Article < ActiveRecord::Base
       end
     end
   end
+
+  def keyword_base_text
+    base_text_data = [title,
+                      desc_facet.gsub(/,/, " "),
+                      abstract]
+    base_text_data.map do |attribute|
+      attribute.gsub(/[^\w]+/, " ").split(" ")
+    end.flatten.join(" ")
+  end
+
+  private
 
   def self._clean_attribute(attribute)
     if attribute.class == String

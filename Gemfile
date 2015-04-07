@@ -19,6 +19,7 @@ gem "responders"
 gem "hashie"
 gem "sucker_punch", "~> 1.0"
 gem "whenever", require: false
+gem 'tf-idf-similarity'
 
 group :development, :test do
   gem "pry"
@@ -37,4 +38,5 @@ group :test do
   gem "vcr"
   gem "webmock"
   gem "database_cleaner"
+  gem "simplecov", require: false
 end
