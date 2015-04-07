@@ -43,4 +43,14 @@ RSpec.describe Article, type: :model do
     expect(Tweet.first.latitude).to eq(nil)
     expect(Tweet.first.article_id).to eq(Article.first.id)
   end
+
+  it "can generate keywords" do
+    VCR.use_cassette("nytimes_articles") do
+      allow(Article).to receive(:_get_latlon).and_return("lat" => 1.5, "lng" => 1.5)
+      NytimesService.new.articles
+    end
+
+    expect(Article.first.keywords).to eq("paul,machine,vowing,says,contender")
+    expect(Article.last.keywords).to eq("restaurants,winter,greek,estiatorio,milos")
+  end
 end
