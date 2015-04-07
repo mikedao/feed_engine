@@ -1,3 +1,5 @@
+require "simplecov"
+SimpleCov.start
 require "vcr"
 require "sucker_punch/testing/inline"
 
