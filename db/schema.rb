@@ -40,5 +40,4 @@ ActiveRecord::Schema.define(version: 20150405220910) do
     t.integer  "article_id"
     t.integer  "tweet_id",           limit: 8
   end
-
 end

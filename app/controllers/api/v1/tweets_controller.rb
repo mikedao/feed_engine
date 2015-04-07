@@ -1,7 +1,11 @@
 class Api::V1::TweetsController < ApplicationController
-  respond_to :json, :xml
+  include ActionController::Serialization
 
   def index
-    BuildTweetsJob.new.perform("event")
+    if params[:tweet_id]
+      render json: Tweet.where(tweet_id: params[:tweet_id])
+    elsif
+      render json: Tweet.all
+    end
   end
 end
