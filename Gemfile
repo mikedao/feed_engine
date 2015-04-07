@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'shoulda'
   gem "vcr"
   gem "webmock"
   gem "database_cleaner"

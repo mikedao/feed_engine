@@ -1,11 +1,17 @@
 class Tweet < ActiveRecord::Base
-  def self.build_tweets(data)
+  validates :tweet_id, uniqueness: true
+  belongs_to :article
+
+  def self.build_tweets(data, article_id)
     data.each do |tweet|
-      Tweet.create(body: tweet.text,
-                   username: tweet.user.screen_name,
-                   user_profile_image: tweet.user.profile_image_url,
-                   latitude: add_coordinates("lat", tweet),
-                   longitude: add_coordinates("long", tweet))
+      tweet_data = _build_object(tweet)
+      Tweet.create(body: tweet_data.text,
+                   username: tweet_data.user.screen_name,
+                   user_profile_image: tweet_data.user.profile_image_url,
+                   latitude: add_coordinates("lat", tweet_data),
+                   longitude: add_coordinates("long", tweet_data),
+                   tweet_id: tweet_data.id,
+                   article_id: article_id)
     end
   end
 
@@ -19,5 +25,9 @@ class Tweet < ActiveRecord::Base
     elsif dir == "long"
       tweet.geo.coordinates.last.to_f
     end
+  end
+
+  def self._build_object(data)
+    Hashie::Mash.new(data)
   end
 end
