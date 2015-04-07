@@ -1,7 +1,5 @@
 class Api::V1::TweetsController < ApplicationController
-  respond_to :json, :xml
-
-  def index
-    BuildTweetsJob.new.perform("event")
+  def show
+    render json: Tweet.find(params[:id])
   end
 end

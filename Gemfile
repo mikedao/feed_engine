@@ -1,13 +1,11 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '4.2.0'
-gem 'rails-api'
-gem 'pg'
+gem "rails", "4.2.0"
+gem "rails-api"
+gem "pg"
 
 # Deploy with Capistrano
-# gem 'capistrano', :group => :development
-
-source "https://rubygems.org"
+# gem "capistrano", :group => :development
 
 gem "jbuilder", "~> 2.0"
 gem "awesome_print"
@@ -19,6 +17,7 @@ gem "responders"
 gem "hashie"
 gem "sucker_punch", "~> 1.0"
 gem "whenever", require: false
+gem "active_model_serializers"
 
 group :development, :test do
   gem "pry"
@@ -33,7 +32,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'shoulda'
+  gem "shoulda"
   gem "vcr"
   gem "webmock"
   gem "database_cleaner"

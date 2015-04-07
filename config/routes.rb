@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :articles, only: [:index]
-      resources :tweets, only: [:index]
+      resources :articles, only: [:index, :show]
+      resources :tweets, only: [:show]
     end
   end
 end
