@@ -46,7 +46,7 @@ RSpec.describe Article, type: :model do
 
   it "can generate keywords" do
     VCR.use_cassette("nytimes_articles") do
-      allow(Article).to receive(:_get_latlon).and_return({"lat" => 1.5, "lng" => 1.5})
+      allow(Article).to receive(:_get_latlon).and_return("lat" => 1.5, "lng" => 1.5)
       NytimesService.new.articles
     end
 

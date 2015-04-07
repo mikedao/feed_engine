@@ -36,7 +36,7 @@ class KeywordEngine
   private
 
   def find_document(article)
-    corpus.find { |document| document.text == article.keyword_base_text }
+    corpus.detect { |document| document.text == article.keyword_base_text }
   end
 
   def sort_and_filter_terms(tfidf_by_term)
