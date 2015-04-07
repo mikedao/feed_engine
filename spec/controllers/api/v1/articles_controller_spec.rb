@@ -28,15 +28,15 @@ RSpec.describe Api::V1::ArticlesController, type: :controller do
                                desc_facet: "keyword1, keyword2",
                                geo_facet: "Denver")
       tweet1 = article.tweets.create(body: "Turing schooll wins again",
-                            username: "j3",
-                            tweet_id: 123)
+                                     username: "j3",
+                                     tweet_id: 123)
       tweet2 = article.tweets.create(body: "Some tweet",
-                            username: "bmrsny",
-                            tweet_id: 111)
+                                     username: "bmrsny",
+                                     tweet_id: 111)
       tweet3 = article.tweets.create(body: "Some other tweet",
-                            username: "j3",
-                            tweet_id: 222)
-      get :show, format: :json, id: article.id 
+                                     username: "j3",
+                                     tweet_id: 222)
+      get :show, format: :json, id: article.id
       body = JSON.parse(response.body)["article"]
 
       expect(body["title"]).to eq(article.title)

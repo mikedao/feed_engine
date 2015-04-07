@@ -49,7 +49,6 @@ RSpec.describe Api::V1::TweetsController, type: :controller do
       tweet3 = Tweet.create(body: "Some other tweet",
                             username: "j3",
                             tweet_id: 222)
-      tweets = [tweet1.tweet_id, tweet2.tweet_id, tweet3.tweet_id]
 
       get :index
 
