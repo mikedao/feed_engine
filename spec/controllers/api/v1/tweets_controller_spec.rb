@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe Api::V1::TweetsController, type: :controller do
   describe "show" do
-    xit "returns json with one tweet" do
+    it "returns json with one tweet" do
       tweet = Tweet.create(body: "Turing schooll wins again",
                             username: "j3")
       get :show, format: :json, id: tweet.id
@@ -14,7 +14,7 @@ RSpec.describe Api::V1::TweetsController, type: :controller do
       expect(first_tweet["username"]).to eq(tweet.username)
     end
 
-    xit "returns json with multiple  tweet ids" do
+    it "returns json with multiple  tweet ids" do
       tweet1 = Tweet.create(body: "Turing schooll wins again",
                             username: "j3",
                             tweet_id: 123)
