@@ -1,8 +1,9 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-gem 'rails', '4.2.0'
-gem 'rails-api'
-gem 'pg'
+gem "rails", "4.2.0"
+gem "rails-api"
+gem "pg"
+gem "puma"
 
 # Deploy with Capistrano
 # gem 'capistrano', :group => :development
