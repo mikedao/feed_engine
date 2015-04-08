@@ -44,7 +44,6 @@ RSpec.describe Api::V1::ArticlesController, type: :controller do
       expect(body["abstract"]).to eq(article.abstract)
       expect(body["desc_facet"]).to eq(article.desc_facet)
       expect(body["geo_facet"]).to eq(article.geo_facet)
-      expect(body["tweets"]).to eq([tweet1.tweet_id, tweet2.tweet_id, tweet3.tweet_id])
       expect(body["links"]["tweets"]).to eq("/articles/#{article.id}/tweets")
     end
   end

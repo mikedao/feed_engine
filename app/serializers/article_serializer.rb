@@ -9,12 +9,6 @@ class ArticleSerializer < ActiveModel::Serializer
              :longitude,
              :links
 
-  has_many :tweets
-
-  def tweets
-    object.tweets.pluck(:tweet_id)
-  end
-
   def links
     { tweets: "/articles/#{object.id}/tweets" }
   end
