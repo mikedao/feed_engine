@@ -81,5 +81,10 @@ test:
 production:
   <<: *default
   database: feed_engine_production
-  username: feed_engine
+  adapter: postgresql
+  encoding: unicode
+  database: myapp
+  host: localhost
+  pool: 5
+  username: deployment
   password: <%= ENV['FEED_ENGINE_DATABASE_PASSWORD'] %>
