@@ -12,7 +12,7 @@ class ArticleSerializer < ActiveModel::Serializer
   has_many :tweets
 
   def tweets
-    object.tweets.pluck(:id)
+    object.tweets.pluck(:tweet_id)
   end
 
   def links
