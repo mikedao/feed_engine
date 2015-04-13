@@ -2,7 +2,7 @@ class GeocodeService
   attr_reader :connection
 
   def initialize
-    @connection ||= Faraday.new(url: "https://maps.googleapis.com/maps/api/geocode")
+    @connection = Faraday.new(url: "https://maps.googleapis.com/maps/api/geocode")
   end
 
   def geocode_info(geo_facet)
