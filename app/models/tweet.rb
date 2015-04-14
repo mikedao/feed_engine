@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-  validates :tweet_id, uniqueness: true
+  validates :tweet_id, :body, uniqueness: true
   belongs_to :article
 
   def self.build_tweets(data, article_id)

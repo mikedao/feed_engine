@@ -11,6 +11,6 @@ class TwitterRestApi
   end
 
   def search_by(terms)
-    client.search(terms, lang: "en")
+    client.search(terms)
   end
 end

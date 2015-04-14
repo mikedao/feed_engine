@@ -61,6 +61,13 @@ class Article < ActiveRecord::Base
     end
   end
 
+  def self.clear_stale_articles
+    where("created_at <= ?", Date.today - 5).each do |article|
+      Tweet.delete_all(article_id: article.id)
+      article.destroy
+    end
+  end
+
   def self._get_latlon(id)
     article = Article.find(id)
     if article.geo_facet.present?

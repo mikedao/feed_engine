@@ -6,4 +6,6 @@ every 30.minutes do
   runner "Article.build_associated_tweets"
 end
 
-
+every 1.day, at: "12:00 am" do
+  runner "Article.clear_stale_articles"
+end
