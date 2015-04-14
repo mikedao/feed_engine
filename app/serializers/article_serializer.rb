@@ -10,6 +10,6 @@ class ArticleSerializer < ActiveModel::Serializer
              :links
 
   def links
-    { tweets: "/articles/#{object.id}/tweets" }
+    { tweets: "/api/v1/articles/#{object.id}/tweets" }
   end
 end
