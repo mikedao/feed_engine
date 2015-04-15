@@ -7,6 +7,10 @@ class ArticleSerializer < ActiveModel::Serializer
              :abstract,
              :latitude,
              :longitude,
+             :byline,
+             :published_date,
+             :section,
+             :subsection,
              :links
 
   def links
