@@ -11,7 +11,7 @@ class Tweet < ActiveRecord::Base
                    latitude: add_coordinates("lat", tweet_data),
                    longitude: add_coordinates("long", tweet_data),
                    tweet_id: tweet_data.id,
-                   published_time: tweet.created_at.to_datetime,
+                   published_time: tweet_data.created_at.to_datetime,
                    article_id: article_id)
     end
   end
@@ -26,5 +26,9 @@ class Tweet < ActiveRecord::Base
     elsif dir == "long"
       tweet.geo.coordinates.last.to_f
     end
+  end
+
+  def self._build_object(tweet)
+    Hashie::Mash.new(tweet)
   end
 end

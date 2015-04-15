@@ -9,6 +9,7 @@ RSpec.describe Tweet, type: :model do
                                geo_facet: "20.99, -89.888")
       data = [{
         text: "cool tweet",
+        created_at: Time.now,
         geo?: true,
         geo: {
           coordinates: [37.1891, -101.2342]

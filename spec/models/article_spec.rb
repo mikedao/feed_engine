@@ -8,7 +8,11 @@ RSpec.describe Article, type: :model do
         url: "url",
         abstract: "abstract",
         des_facet: "desc_facet",
-        geo_facet: "indiana"
+        geo_facet: "indiana",
+        byline: "author",
+        published_date: "2015-04-10",
+        section: "section",
+        subsection: "subsection"
       }]
 
       Article.create_articles(article_data)
@@ -29,16 +33,10 @@ RSpec.describe Article, type: :model do
       Article.build_associated_tweets
     end
 
-    expect(Tweet.first.body).to eq("RT @StevePolyak: Jeff Casimir @j3 director" +
-                                   " at @TuringSchool http://t.co/O0QxUqjmKv" +
-                                   " when cultivating innovation, it's all" +
-                                   " about the people #…")
-    expect(Tweet.first.username).to eq("j3")
-    expect(Tweet.first.user_profile_image).to eq("http://pbs.twimg.com/" +
-                                                 "profile_images/37880000054359" +
-                                                 "9975/c63a58ff323b22a9e9ad52f"+
-                                                 "fbbfb7f0a_normal.jpeg")
-    expect(Tweet.first.tweet_id).to eq(584427863450914816)
+    expect(Tweet.first.body).to eq("@CCandUC you and Logan graduated from http://t.co/kIeZ3vlLHW, right? What'd you think? How's does the mentoring work?")
+    expect(Tweet.first.username).to eq("iamvery")
+    expect(Tweet.first.user_profile_image).to eq("http://pbs.twimg.com/profile_images/582243875433144320/4rYLkXVH_normal.jpg")
+    expect(Tweet.first.tweet_id).to eq(586336225549754368)
     expect(Tweet.first.longitude).to eq(nil)
     expect(Tweet.first.latitude).to eq(nil)
     expect(Tweet.first.article_id).to eq(Article.first.id)
