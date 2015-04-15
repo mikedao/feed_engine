@@ -7,6 +7,8 @@ class NytimesService
   end
 
   def articles
+    require "pry"
+    binding.pry
     response_body = parse(connection.get)
     articles_data = response_body["results"]
     Article.create_articles(articles_data)
