@@ -11,6 +11,10 @@ class Article < ActiveRecord::Base
         abstract: article.abstract,
         desc_facet: _clean_attribute(article.des_facet),
         geo_facet: _clean_location(article.geo_facet),
+        byline: article.byline,
+        published_date: Date.parse(article.published_date),
+        section: article.section,
+        subsection: article.subsection
       )
       if current_article.save
         current_article.update(
